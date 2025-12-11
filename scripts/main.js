@@ -491,7 +491,6 @@ function initResumeLink() {
     const resumeLink = document.querySelector('#resume-link');
     if (resumeLink) {
         // Verify the link path is correct
-        console.log('Resume link href:', resumeLink.getAttribute('href'));
     }
 }
 
@@ -668,7 +667,6 @@ function initElectricBorder(containerId, strokeId, filterId) {
                     try {
                         a.beginElement();
                     } catch (e) {
-                        console.warn('ElectricBorder: beginElement failed');
                     }
                 }
             });
@@ -762,7 +760,4 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// ===== Console Welcome Message =====
-console.log('%c👋 Welcome to Emily Garcia\'s Portfolio!', 'color: #9b5de5; font-size: 20px; font-weight: bold;');
-console.log('%cBuilt with passion and attention to detail.', 'color: #b0b0b0; font-size: 12px;');
 

@@ -22,9 +22,9 @@ const projects = [
         ],
         challenge: 'Optimized database queries and implemented efficient caching to reduce page load times by 40% while handling concurrent booking requests.',
         gallery: [
-            'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&h=600&fit=crop',
-            'https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=800&h=600&fit=crop',
-            'https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=800&h=600&fit=crop'
+            '../resources/images/FreelanceMusic/fm1.png',
+            '../resources/images/FreelanceMusic/fm2.png',
+            '../resources/images/FreelanceMusic/fm3.png'
         ],
         githubUrl: '#',
         liveUrl: null,
@@ -57,9 +57,9 @@ const projects = [
         ],
         challenge: 'Implemented real-time cost calculations for trip planning that dynamically update based on participant count and distance.',
         gallery: [
-            'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&h=600&fit=crop',
-            'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=600&fit=crop',
-            'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=600&fit=crop'
+            '../resources/images/CrimsonCollab/CC1.png',
+            '../resources/images/CrimsonCollab/CC2.png',
+            '../resources/images/CrimsonCollab/CC3.png'
         ],
         githubUrl: '#',
         liveUrl: null,
@@ -108,9 +108,9 @@ const projects = [
         ],
         challenge: 'Integrated Google Gemini API to create an AI tutor that guides students without giving direct answers, fostering critical thinking skills.',
         gallery: [
-            'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&h=600&fit=crop',
-            'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=600&fit=crop',
-            'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&h=600&fit=crop'
+            '../resources/images/MSQualityEducation/MSQE1.png',
+            '../resources/images/MSQualityEducation/MSQE2.png',
+            '../resources/images/MSQualityEducation/MSQE3.png'
         ],
         githubUrl: '#',
         liveUrl: null,
@@ -135,9 +135,9 @@ const projects = [
         ],
         challenge: 'Designed a scalable database architecture to handle large biological datasets while maintaining query performance and data integrity.',
         gallery: [
-            'https://images.unsplash.com/photo-1532619675605-1ede6c7edfe0?w=800&h=600&fit=crop',
-            'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&h=600&fit=crop',
-            'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&h=600&fit=crop'
+            '../resources/images/BioISAC/BI1.png',
+            '../resources/images/BioISAC/BI2.png',
+            '../resources/images/BioISAC/BI3.png'
         ],
         githubUrl: '#',
         liveUrl: null,
@@ -159,9 +159,9 @@ const projects = [
             { name: 'Jayden Ragland', linkedin: 'https://www.linkedin.com/in/jayden-ragland/' }
         ],
         gallery: [
-            'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800&h=600&fit=crop',
-            'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=600&fit=crop',
-            'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=800&h=600&fit=crop'
+            '../resources/images/CrimsonBookStore/CBS1.png',
+            '../resources/images/CrimsonBookStore/CBS2.png',
+            '../resources/images/CrimsonBookStore/CBS3.png'
         ],
         githubUrl: '#',
         liveUrl: null,
