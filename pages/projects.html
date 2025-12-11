@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Explore Emily Garcia's portfolio of innovative projects showcasing technical skills and creative solutions.">
+    <title>Projects | Emily Garcia</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../resources/icons/favicon.ico">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles/style.css">
+
+    <style>
+        /* ============================================
+           PROJECTS PAGE - COMMAND GRID & BENTO MODAL
+           ============================================ */
+
+        :root {
+            --neon-purple: #a855f7;
+            --dark-bg: #0a0a0a;
+            --glass-bg: rgba(20, 20, 25, 0.65);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Main Projects Section */
+        .projects-main {
+            min-height: 100vh;
+            padding: 6rem 2rem;
+            background: var(--dark-bg);
+            transform: scale(1.1);
+            transform-origin: top center;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            font-family: 'Poppins', sans-serif;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.1rem;
+        }
+
+        /* Command Grid */
+        .command-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .command-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Project Card */
+        .project-card-command {
+            position: relative;
+            aspect-ratio: 16 / 9;
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+                box-shadow 0.3s ease;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid var(--glass-border);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .project-card-command::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0a0a0a;
+            z-index: 0;
+        }
+
+        .project-card-command:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(168, 85, 247, 0.3),
+                0 0 30px rgba(168, 85, 247, 0.2);
+            border-color: var(--neon-purple);
+        }
+
+        .project-card-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 1.5rem;
+            pointer-events: none;
+        }
+
+        .project-role-tag {
+            align-self: flex-end;
+            background: rgba(168, 85, 247, 0.2);
+            border: 1px solid var(--neon-purple);
+            color: var(--neon-purple);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            pointer-events: none;
+        }
+
+        .project-card-logo {
+            position: relative;
+            z-index: 5;
+            max-width: 70%;
+            max-height: 70%;
+            width: auto;
+            height: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+        }
+
+        .project-card-logo svg {
+            width: 100%;
+            height: 100%;
+            max-width: 100%;
+            max-height: 100%;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .project-card-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* Bento Box Modal */
+        .bento-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1001;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            overflow-y: auto;
+            padding: 2rem;
+        }
+
+        .bento-modal.active {
+            display: block;
+        }
+
+        .bento-modal-close {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 1002;
+        }
+
+        .bento-modal-close:hover {
+            background: var(--neon-purple);
+            border-color: var(--neon-purple);
+            transform: translateX(-5px);
+        }
+
+        .bento-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 0;
+            transform: scale(0.9);
+            transform-origin: top center;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            align-items: stretch;
+        }
+
+        @media (max-width: 768px) {
+            .bento-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .bento-box[data-span="2"] {
+                grid-column: span 1 !important;
+            }
+
+            .bento-box[data-span="3"] {
+                grid-column: span 1 !important;
+            }
+        }
+
+        .bento-box {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .bento-box:hover {
+            border-color: var(--neon-purple);
+            box-shadow: 0 0 30px rgba(168, 85, 247, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .bento-box[data-span="2"] {
+            grid-column: span 2;
+        }
+
+        .bento-box[data-span="3"] {
+            grid-column: span 3;
+        }
+
+        /* Box A: Gallery */
+        .bento-gallery {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            min-height: 400px;
+            border-radius: 15px;
+            overflow: hidden;
+            background: #0a0a0a !important;
+            z-index: 100;
+        }
+
+        .bento-gallery::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0a0a0a;
+            z-index: 0;
+        }
+
+        .gallery-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background: #0a0a0a;
+            z-index: 101;
+        }
+
+        .gallery-image.active {
+            opacity: 1;
+        }
+
+        /* Box B: Context & Actions */
+        .bento-context h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--neon-purple);
+            margin: 0 0 1.5rem 0;
+            text-shadow: 0 0 15px rgba(168, 85, 247, 0.5);
+            line-height: 1.2;
+        }
+
+        .problem-solution {
+            font-family: 'Poppins', sans-serif;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.9;
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+        }
+
+        .problem-solution strong {
+            color: var(--neon-purple);
+        }
+
+        .bento-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: auto;
+        }
+
+        .action-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .action-btn-outline {
+            background: transparent;
+            border: 2px solid var(--neon-purple);
+            color: var(--neon-purple);
+        }
+
+        .action-btn-outline:hover {
+            background: rgba(168, 85, 247, 0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(168, 85, 247, 0.3);
+        }
+
+        .action-btn-solid {
+            background: var(--neon-purple);
+            color: #fff;
+            border: 2px solid var(--neon-purple);
+        }
+
+        .action-btn-solid:hover {
+            background: #9333ea;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(168, 85, 247, 0.5);
+        }
+
+        .action-btn svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Box C: Tech Stack */
+        .tech-stack-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .tech-tag-bento {
+            background: rgba(168, 85, 247, 0.15);
+            border: 1px solid var(--neon-purple);
+            color: var(--neon-purple);
+            padding: 0.65rem 1.3rem;
+            border-radius: 25px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            box-shadow: 0 0 10px rgba(168, 85, 247, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .tech-tag-bento:hover {
+            background: rgba(168, 85, 247, 0.25);
+            box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* Box D & E: My Role & Team */
+        .bento-section-header {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--neon-purple);
+            margin-bottom: 1.25rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            text-shadow: 0 0 10px rgba(168, 85, 247, 0.3);
+        }
+
+        .bento-section-content {
+            font-family: 'Poppins', sans-serif;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.9;
+            font-size: 1rem;
+        }
+
+        .role-detail {
+            margin-top: 0.75rem;
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .team-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .team-member-button {
+            display: inline-block;
+            font-family: 'Poppins', sans-serif;
+            color: var(--neon-purple);
+            background: rgba(168, 85, 247, 0.15);
+            border: 1px solid var(--neon-purple);
+            padding: 0.75rem 1.5rem;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(168, 85, 247, 0.2);
+        }
+
+        .team-member-button:hover {
+            background: var(--neon-purple);
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
+        }
+
+        /* Box F: Challenge */
+        .bento-challenge {
+            margin-top: 1rem;
+        }
+
+        .challenge-text {
+            font-family: 'Poppins', sans-serif;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.9;
+            font-size: 1.1rem;
+        }
+
+        .role-detail {
+            margin-top: 0.75rem;
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .tech-stack-tags {
+                display: flex;
+            flex-wrap: wrap;
+            gap: 0.85rem;
+            margin-top: 0.5rem;
+        }
+
+        .tech-tag-bento {
+            background: rgba(168, 85, 247, 0.15);
+            border: 1px solid var(--neon-purple);
+            color: var(--neon-purple);
+            padding: 0.65rem 1.3rem;
+            border-radius: 25px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            box-shadow: 0 0 10px rgba(168, 85, 247, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .tech-tag-bento:hover {
+            background: rgba(168, 85, 247, 0.25);
+            box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="experience.html">Experience</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-toggle">☰</button>
+        </div>
+    </nav>
+
+    <!-- Projects Main Section -->
+    <main class="projects-main">
+        <div class="section-title">
+            <h2>Projects</h2>
+            <p>Select a project to explore</p>
+        </div>
+
+        <!-- Command Grid -->
+        <div class="command-grid" id="command-grid">
+            <!-- Cards will be generated by JavaScript -->
+        </div>
+    </main>
+
+    <!-- Bento Box Modal -->
+    <div class="bento-modal" id="bento-modal">
+        <button class="bento-modal-close" id="modal-close" aria-label="Close modal">←</button>
+        <div class="bento-container">
+        <div class="bento-grid" id="bento-grid">
+                <!-- Content will be populated by JavaScript -->
+                </div>
+                </div>
+            </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+            <p>&copy; 2025 Emily Garcia. All rights reserved.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../scripts/letterGlitch.js"></script>
+    <script src="../scripts/main.js"></script>
+    <script src="../scripts/bentoModal.js"></script>
+    <script>
+        /* ============================================
+           PROJECTS PAGE - COMMAND GRID INITIALIZATION
+           ============================================ */
+        
+        // Get functions from BentoModal (works with file:// protocol)
+        const bentoModal = window.BentoModal || {};
+        const projectsData = bentoModal.projects;
+        const openBentoModalFn = bentoModal.openBentoModal;
+        const initBentoModalFn = bentoModal.initBentoModal;
+
+        /* ============================================
+           INITIALIZE COMMAND GRID
+           ============================================ */
+
+        function initCommandGrid() {
+            const grid = document.getElementById('command-grid');
+            if (!grid) {
+                console.error('Command grid element not found');
+                return;
+            }
+
+            if (!projectsData || !Array.isArray(projectsData)) {
+                console.error('Projects data not available. BentoModal not loaded.');
+                grid.innerHTML = `
+                    <div style="grid-column: 1 / -1; text-align: center; padding: 3rem; color: #a855f7;">
+                        <h3 style="margin-bottom: 1rem;">Script Loading Error</h3>
+                        <p style="color: rgba(255,255,255,0.7);">
+                            Failed to load bentoModal.js. Please check the file path.
+                        </p>
+                    </div>
+                `;
+                return;
+            }
+
+            console.log('Initializing command grid with', projectsData.length, 'projects');
+            grid.innerHTML = '';
+
+            projectsData.forEach(project => {
+                const card = document.createElement('div');
+                card.className = 'project-card-command';
+                card.setAttribute('data-project-id', project.id);
+
+                // Create logo container
+                const logoContainer = document.createElement('div');
+                logoContainer.className = 'project-card-logo';
+                
+                if (project.logoSvg) {
+                    // For SVG logos (inline)
+                    logoContainer.innerHTML = project.logoSvg;
+                } else if (project.logoImage) {
+                    // For PNG/other image logos
+                    const logoImg = document.createElement('img');
+                    logoImg.src = project.logoImage;
+                    logoImg.alt = project.title;
+                    logoContainer.appendChild(logoImg);
+                }
+
+                // Create content container for role tag
+                const content = document.createElement('div');
+                content.className = 'project-card-content';
+
+                const roleTag = document.createElement('div');
+                roleTag.className = 'project-role-tag';
+                roleTag.textContent = project.role;
+
+                content.appendChild(roleTag);
+
+                card.appendChild(logoContainer);
+                card.appendChild(content);
+
+                card.addEventListener('click', () => {
+                    if (openBentoModalFn) {
+                        openBentoModalFn(project.id);
+                    }
+                });
+
+                grid.appendChild(card);
+            });
+
+            console.log('Command grid initialized successfully');
+        }
+
+        /* ============================================
+           EVENT LISTENERS
+           ============================================ */
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initCommandGrid();
+            if (initBentoModalFn) {
+                initBentoModalFn();
+            }
+        });
+    </script>
+</body>
+
+</html>

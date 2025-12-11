@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Emily Garcia - Tech-driven Developer, Designer, and Problem Solver. Explore my portfolio showcasing innovative projects and technical expertise.">
+    <meta name="keywords" content="Emily Garcia, Portfolio, Developer, Designer, Web Development, Software Engineer">
+    <meta name="author" content="Emily Garcia">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Emily Garcia - Portfolio">
+    <meta property="og:description" content="Tech-driven Developer, Designer, and Problem Solver">
+    <meta property="og:image" content="../resources/images/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Emily Garcia - Portfolio">
+    <meta property="twitter:description" content="Tech-driven Developer, Designer, and Problem Solver">
+
+    <title>Emily Garcia | Portfolio</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../resources/icons/favicon.ico">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="experience.html">Experience</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-toggle">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text-section">
+                <h1 class="hero-name">
+                    <span>Emily Garcia</span>
+                </h1>
+                <div class="typing-text">
+                    Hi, I'm Emily Garcia.
+                </div>
+                <div class="hero-buttons">
+                    <a href="projects.html" class="btn btn-primary">View Projects</a>
+                    <a href="about.html" class="btn btn-secondary">About Me</a>
+                    <a href="contact.html" class="btn btn-secondary">Contact</a>
+                </div>
+            </div>
+            <div class="hero-headshot-container">
+                <div class="electric-border" id="headshot-border">
+                    <svg class="eb-svg" aria-hidden="true" focusable="false">
+                        <defs>
+                            <filter id="turbulent-displace-headshot" colorInterpolationFilters="sRGB" x="-20%" y="-20%"
+                                width="140%" height="140%">
+                                <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="10" result="noise1"
+                                    seed="1" />
+                                <feOffset in="noise1" dx="0" dy="0" result="offsetNoise1">
+                                    <animate attributeName="dy" values="700; 0" dur="6s" repeatCount="indefinite"
+                                        calcMode="linear" />
+                                </feOffset>
+                                <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="10" result="noise2"
+                                    seed="1" />
+                                <feOffset in="noise2" dx="0" dy="0" result="offsetNoise2">
+                                    <animate attributeName="dy" values="0; -700" dur="6s" repeatCount="indefinite"
+                                        calcMode="linear" />
+                                </feOffset>
+                                <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="10" result="noise3"
+                                    seed="2" />
+                                <feOffset in="noise3" dx="0" dy="0" result="offsetNoise3">
+                                    <animate attributeName="dx" values="490; 0" dur="6s" repeatCount="indefinite"
+                                        calcMode="linear" />
+                                </feOffset>
+                                <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="10" result="noise4"
+                                    seed="2" />
+                                <feOffset in="noise4" dx="0" dy="0" result="offsetNoise4">
+                                    <animate attributeName="dx" values="0; -490" dur="6s" repeatCount="indefinite"
+                                        calcMode="linear" />
+                                </feOffset>
+                                <feComposite in="offsetNoise1" in2="offsetNoise2" result="part1" />
+                                <feComposite in="offsetNoise3" in2="offsetNoise4" result="part2" />
+                                <feBlend in="part1" in2="part2" mode="color-dodge" result="combinedNoise" />
+                                <feDisplacementMap in="SourceGraphic" in2="combinedNoise" scale="30"
+                                    xChannelSelector="R" yChannelSelector="B" />
+                            </filter>
+                        </defs>
+                    </svg>
+                    <div class="eb-layers">
+                        <div class="eb-stroke" id="headshot-stroke"></div>
+                        <div class="eb-glow-1"></div>
+                        <div class="eb-glow-2"></div>
+                        <div class="eb-background-glow"></div>
+                    </div>
+                    <div class="eb-content">
+                        <img src="../resources/images/download.png" alt="Emily Garcia" class="hero-headshot"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div class="hero-headshot-placeholder" style="display:none;">
+                            <span style="font-size: 4rem;">👤</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Emily Garcia. All rights reserved.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../scripts/letterGlitch.js"></script>
+    <script src="../scripts/main.js"></script>
+</body>
+
+</html>
