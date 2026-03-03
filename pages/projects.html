@@ -8,6 +8,7 @@
         content="Explore Emily Garcia's portfolio of innovative projects showcasing technical skills and creative solutions.">
     <title>Projects | Emily Garcia</title>
 
+    <link rel="icon" type="image/png" href="../resources/images/EmilyLogo.png">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,7 +35,7 @@
         /* Main Projects Section */
         .projects-main {
             min-height: 100vh;
-            padding: 6rem 2rem;
+            padding: 6rem 2rem 8rem; /* extra bottom space so cards clear footer */
             background: var(--dark-bg);
             transform: scale(1.1);
             transform-origin: top center;
@@ -72,6 +73,19 @@
             gap: 2rem;
             max-width: 1200px;
             margin: 0 auto;
+        }
+
+        /* Better mid-width behavior: 2 columns on medium screens so the FULL STACK pill has room */
+        @media (max-width: 1180px) {
+            .command-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.75rem;
+            }
+
+            .project-role-tag {
+                font-size: 0.8rem;
+                padding: 0.45rem 0.9rem;
+            }
         }
 
         @media (max-width: 768px) {
@@ -257,6 +271,12 @@
                 grid-template-columns: 1fr;
             }
 
+            .project-role-tag {
+                font-size: 0.75rem;
+                padding: 0.4rem 0.8rem;
+                letter-spacing: 0.4px;
+            }
+
             .bento-box[data-span="2"] {
                 grid-column: span 1 !important;
             }
@@ -306,6 +326,12 @@
 
             .problem-solution {
                 font-size: 0.95rem;
+            }
+
+            .project-role-tag {
+                font-size: 0.7rem;
+                padding: 0.35rem 0.75rem;
+                letter-spacing: 0.3px;
             }
         }
 
@@ -623,7 +649,7 @@
 
     <!-- Footer -->
     <footer class="footer">
-            <p>&copy; 2025 Emily Garcia. All rights reserved.</p>
+            <p>&copy; 2026 Emily Garcia. All rights reserved.</p>
     </footer>
 
     <!-- Scripts -->

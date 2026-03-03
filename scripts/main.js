@@ -140,6 +140,73 @@ function initScrollAnimations() {
     });
 }
 
+// ===== Skill Tag Pop on Scroll (staggered) =====
+function initSkillTagPop() {
+    const skillsSection = document.querySelector('.technical-skills');
+    const tags = document.querySelectorAll('.technical-skills .skill-tag');
+    if (!skillsSection || !tags.length) return;
+
+    tags.forEach(tag => tag.classList.add('skill-tag-pop'));
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            const visibleTags = entry.target.querySelectorAll('.skill-tag-pop');
+            visibleTags.forEach((tag, index) => {
+                tag.style.transitionDelay = `${index * 0.04}s`;
+                tag.classList.add('visible');
+            });
+            observer.unobserve(entry.target);
+        });
+    }, { threshold: 0.15, rootMargin: '0px 0px -30px 0px' });
+
+    observer.observe(skillsSection);
+}
+
+// ===== Hero Mouse-Follow Glow =====
+function initHeroMouseGlow() {
+    const hero = document.querySelector('.hero');
+    if (!hero) return;
+
+    const glow = document.createElement('div');
+    glow.className = 'hero-mouse-glow';
+    glow.setAttribute('aria-hidden', 'true');
+    hero.appendChild(glow);
+
+    hero.addEventListener('mousemove', (e) => {
+        const rect = hero.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        glow.style.background = `radial-gradient(circle 180px at ${x}px ${y}px, rgba(155, 93, 229, 0.12) 0%, transparent 55%)`;
+        glow.classList.add('active');
+    });
+
+    hero.addEventListener('mouseleave', () => glow.classList.remove('active'));
+}
+
+// ===== Name Glitch (random every 5–7s, 200ms) =====
+function initNameGlitch() {
+    const nameSpan = document.querySelector('.hero-name span');
+    if (!nameSpan) return;
+
+    nameSpan.classList.add('hero-name-glitch');
+
+    function triggerGlitch() {
+        nameSpan.classList.add('glitch-active');
+        setTimeout(() => nameSpan.classList.remove('glitch-active'), 200);
+    }
+
+    function scheduleNext() {
+        const delay = 5000 + Math.random() * 2000;
+        setTimeout(() => {
+            triggerGlitch();
+            scheduleNext();
+        }, delay);
+    }
+
+    scheduleNext();
+}
+
 // ===== Skill Progress Bars Animation =====
 function animateSkillBars() {
     const skillBars = document.querySelectorAll('.skill-level-bar');
@@ -714,6 +781,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize scroll animations
     initScrollAnimations();
+
+    // Skill tag pop on scroll (About page)
+    initSkillTagPop();
+
+    // Hero mouse-follow glow and name glitch (Home page)
+    initHeroMouseGlow();
+    initNameGlitch();
 
     // Initialize skill bars animation
     animateSkillBars();

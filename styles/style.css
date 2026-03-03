@@ -17,6 +17,7 @@
     --shadow-glow: 0 0 20px rgba(155, 93, 229, 0.3);
     --shadow-glow-strong: 0 0 30px rgba(155, 93, 229, 0.6);
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --glitch-cyan: #22d3ee;
 }
 
 
@@ -174,6 +175,25 @@ p {
     padding: 8rem 2rem 4rem;
     position: relative;
     overflow: hidden;
+}
+
+/* Hero mouse-follow glow (position updated by JS) */
+.hero-mouse-glow {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    background: radial-gradient(
+        circle 180px at 50% 50%,
+        rgba(155, 93, 229, 0.12) 0%,
+        transparent 55%
+    );
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.hero-mouse-glow.active {
+    opacity: 1;
 }
 
 .hero::before {
@@ -374,6 +394,18 @@ p {
     background-clip: text;
     text-shadow: 0 0 30px var(--accent-purple-glow);
     display: inline-block;
+}
+
+/* Subtle name glitch (triggered by JS every 5–7s, 200ms) */
+.hero-name .hero-name-glitch.glitch-active {
+    animation: nameGlitch 0.2s ease-out forwards;
+}
+
+@keyframes nameGlitch {
+    0% { transform: translateX(0); text-shadow: 0 0 30px var(--accent-purple-glow); }
+    33% { transform: translateX(-2px); text-shadow: -2px 0 0 var(--glitch-cyan), 2px 0 0 var(--accent-purple), 0 0 30px var(--accent-purple-glow); }
+    66% { transform: translateX(2px); text-shadow: 2px 0 0 var(--accent-purple), -2px 0 0 var(--glitch-cyan), 0 0 30px var(--accent-purple-glow); }
+    100% { transform: translateX(0); text-shadow: 0 0 30px var(--accent-purple-glow); }
 }
 
 .typing-text {
@@ -677,6 +709,18 @@ p {
     font-family: 'Poppins', sans-serif;
 }
 
+/* Skill tag pop on scroll (stagger applied via JS) */
+.skill-tag.skill-tag-pop {
+    opacity: 0;
+    transform: scale(0.92);
+    transition: opacity 0.4s ease, transform 0.4s ease, box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease, color 0.3s ease;
+}
+
+.skill-tag.skill-tag-pop.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
 .skill-tag:hover {
     background: var(--accent-purple);
     color: var(--bg-primary);
@@ -698,14 +742,24 @@ p {
     border-radius: 15px;
     overflow: hidden;
     border: 1px solid var(--border-color);
-    transition: var(--transition-smooth);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     position: relative;
 }
 
 .project-card:hover {
     transform: translateY(-10px);
-    border-color: var(--accent-purple);
-    box-shadow: var(--shadow-glow-strong);
+    border-color: var(--accent-purple-light);
+    box-shadow: 0 0 25px var(--accent-purple-glow), 0 0 50px rgba(155, 93, 229, 0.25);
+}
+
+/* Projects page command grid cards – neon glow on hover (0.3s) */
+.project-card-command {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease !important;
+}
+
+.project-card-command:hover {
+    border-color: var(--accent-purple-light) !important;
+    box-shadow: 0 0 25px var(--accent-purple-glow), 0 0 50px rgba(155, 93, 229, 0.25) !important;
 }
 
 .project-image {
@@ -1064,14 +1118,14 @@ p {
     padding: 2rem;
     border-radius: 15px;
     border: 1px solid var(--border-color);
-    transition: var(--transition-smooth);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     position: relative;
     z-index: 2;
 }
 
 .experience-card:hover {
-    border-color: var(--accent-purple);
-    box-shadow: var(--shadow-glow);
+    border-color: var(--accent-purple-light);
+    box-shadow: 0 0 25px var(--accent-purple-glow), 0 0 50px rgba(155, 93, 229, 0.25);
     transform: translateY(-5px);
 }
 

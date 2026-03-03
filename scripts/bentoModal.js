@@ -6,6 +6,161 @@
 // Projects data
 const projects = [
     {
+        id: 'mississippi-education',
+        title: 'Mississippi Quality Education Platform',
+        role: 'Full Stack',
+        description: 'An AI-powered learning platform expanding access to quality education for K–12 students in Mississippi.',
+        problemSolution: '<strong>The Problem:</strong> K-12 students in Mississippi lack centralized access to quality educational resources that align specifically with state-mandated learning standards (MCCRS), creating an equity gap in student support.<br><br><strong>The Solution:</strong> A comprehensive educational hub that democratizes access to learning by combining MCCRS-aligned resources with an AI-powered Socratic Tutor (Google Gemini) for personalized guidance.',
+        tech: ['C#', '.NET 8 Web API', 'Google Gemini API', 'SQLite', 'Swagger', 'JavaScript (ES6+)', 'Bootstrap 5', 'HTML5', 'CSS3'],
+        myRole: 'Lead Developer & Content Creator',
+        roleDetail: 'Developed the Learning Paths system, creating 5,000+ lines of structured educational content aligned with MCCRS standards. Built a modular single-page application (SPA) with .NET 8.0 Web API backend integration, implementing interactive practice questions with progressive hint systems for Pre-K through 12th grade.',
+        teammates: [
+            { name: 'Griffin Long', linkedin: 'https://www.linkedin.com/in/jgriffinlong/' },
+            { name: 'Shane Magee', linkedin: 'https://www.linkedin.com/in/shanemagee/' },
+            { name: 'Grace Neil', linkedin: 'https://www.linkedin.com/in/graceneil/' }
+        ],
+        awards: [
+            '🏆 First Place - AIS Software Innovate Challenge',
+            '🏆 Student Choice - AIS Software Innovate Challenge'
+        ],
+        challenge: 'Integrated Google Gemini API to create an AI tutor that guides students without giving direct answers, fostering critical thinking skills.',
+        gallery: [
+            '../resources/images/MSQualityEducation/MSQE1.png',
+            '../resources/images/MSQualityEducation/MSQE2.png',
+            '../resources/images/MSQualityEducation/MSQE3.png'
+        ],
+        githubUrl: '#',
+        liveUrl: null,
+        logoSvg: `<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <image href="../resources/images/Mississippi Flower.png" x="176" y="200" height="100" width="160" preserveAspectRatio="xMidYMid meet"/>
+        <text x="256" y="380" font-family="Segoe UI, Arial, sans-serif" font-size="48" font-weight="bold" fill="#FFFFFF" text-anchor="middle">MS Quality Education</text>
+    </svg>`,
+        cardImage: '../resources/images/Screenshot 2025-11-09 170809.png'
+    },
+    {
+        id: 'talentflow',
+        title: 'TalentFlow',
+        role: 'Full Stack',
+        description: 'An AI-driven talent optimization system that maps employee skill sets against organizational gaps, providing personalized upskilling pathways and strategic placement recommendations.',
+        problemSolution: '<strong>The Problem:</strong> Organizations struggle to align their existing workforce skills with emerging business needs, often resulting in high turnover and costly external hiring while internal talent remains underutilized.<br><br><strong>The Solution:</strong> An AI-driven talent optimization system that maps employee skill sets against organizational gaps. By leveraging automated dashboards and data-driven insights, the platform provides personalized upskilling pathways and strategic placement recommendations.',
+        tech: ['Vanilla JS', 'Bootstrap 5.3', 'Chart.js', 'Express.js (Node.js/Bun)', 'Google Gemini 2.0 Flash', 'MySQL (AWS RDS)'],
+        myRole: 'Full-Stack Developer & Data Architect',
+        roleDetail: 'Engineered the data backbone by scraping the EY website for job postings and Udemy for course offerings to build a real-time skills-to-learning map. I architected the "Talent Architecture Hub" recruiter dashboard, implementing an AI Hiring Intelligence Snapshot powered by Gemini 2.0 Flash. I also developed the Hiring ROI Calculator and Mobility Velocity Funnel, which dynamically models the financial impact of internal placements versus external hires.',
+        teammates: [
+            { name: 'Griffin Long', linkedin: 'https://www.linkedin.com/in/jgriffinlong/' },
+            { name: 'Shane Magee', linkedin: 'https://www.linkedin.com/in/shanemagee/' },
+            { name: 'Jessica Weaver', linkedin: 'https://www.linkedin.com/in/jessica-weaver4/' }
+        ],
+        challenge: 'Built real-time skills-to-learning mapping by integrating scraped EY job postings and Udemy course data with Gemini 2.0 Flash for recruiter intelligence.',
+        gallery: [
+            '../resources/images/TalentFlow/TalentFlow1.png',
+            '../resources/images/TalentFlow/TalentFlow2.png',
+            '../resources/images/TalentFlow/TalentFlow3.png'
+        ],
+        githubUrl: '#',
+        liveUrl: null,
+        logoImage: '../resources/images/TalentFlow/TalentFlowLogo.png',
+        cardImage: '../resources/images/TalentFlow/TalentFlow1.png'
+    },
+    {
+        id: 'censusiq',
+        title: 'CensusIQ',
+        role: 'Full Stack',
+        description: 'A high-performance operations dashboard that centralizes real-time hospital census data with ML-powered census forecasts for resource allocation.',
+        problemSolution: '<strong>The Problem:</strong> Hospital administrators lack real-time visibility into patient volume and bed availability, leading to operational bottlenecks and delayed patient care.<br><br><strong>The Solution:</strong> A high-performance operations dashboard that centralizes real-time hospital census data. The platform provides visualizations of facility capacity and uses Random Forest machine learning models to provide accurate census forecasts for resource allocation.',
+        tech: ['React 18', 'Vite', 'Tailwind CSS', 'Chart.js', 'ASP.NET Core 9 (C#)', 'Entity Framework Core 9', 'Random Forest ML', 'MySQL'],
+        myRole: 'Lead Systems Integrator & Backend Contributor',
+        roleDetail: 'Managed the end-to-end integration of project modules to ensure full requirement fulfillment and rubric compliance. I developed the customizable Projections & Settings module, allowing users to toggle forecast visibility and duration. Additionally, I engineered the Hospital Alert System, implemented notifications, and utilized Entity Framework Core 9 to manage complex healthcare data structures.',
+        teammates: [
+            { name: 'Griffin Long', linkedin: 'https://www.linkedin.com/in/jgriffinlong/' },
+            { name: 'Shane Magee', linkedin: 'https://www.linkedin.com/in/shanemagee/' },
+            { name: 'Malyk Hayden', linkedin: 'https://www.linkedin.com/in/malyk-hayden/' }
+        ],
+        challenge: 'Integrated Random Forest ML models with EF Core 9 and real-time census data for accurate facility forecasts and alerting.',
+        gallery: [
+            '../resources/images/CensusIQ/CensusIQ1.png',
+            '../resources/images/CensusIQ/CensusIQ2.png',
+            '../resources/images/CensusIQ/CensusIQ3.png'
+        ],
+        githubUrl: '#',
+        liveUrl: null,
+        logoImage: '../resources/images/CensusIQ/CensusIQLogo.png',
+        cardImage: '../resources/images/CensusIQ/CensusIQ1.png'
+    },
+    {
+        id: 'makro',
+        title: 'Makro',
+        role: 'Full Stack',
+        description: 'A full-stack social media application that bridges fitness tracking and community networking—users share progress, interact through feeds, and view performance metrics.',
+        problemSolution: '<strong>The Problem:</strong> Generic fitness apps often focus solely on individual data tracking, neglecting the social engagement and community accountability critical for long-term user retention.<br><br><strong>The Solution:</strong> A full-stack social media application that bridges the gap between fitness tracking and community networking. The platform allows users to share progress, interact through feeds, and view performance metrics via an interactive dashboard.',
+        tech: ['Vanilla JS', 'Bootstrap 5.3.3', 'Chart.js 4.4', 'ASP.NET Core 8 Web API (C#)', 'MySQL (JawsDB)', 'BCrypt.Net-Next'],
+        myRole: 'Product Lifecycle Lead & Full-Stack Developer',
+        roleDetail: 'Directed the Product Life Cycle (PLC) strategy and orchestrated the end-to-end development of the community engagement engine. I spearheaded the implementation of the Community Leaderboard and engineered the backend logic for user interactions, including likes, comments, and following features. I ensured secure data handling using BCrypt.Net-Next for password hashing and managed persistent session connectivity.',
+        teammates: [
+            { name: 'Griffin Long', linkedin: 'https://www.linkedin.com/in/jgriffinlong/' }
+        ],
+        challenge: 'Built community engagement features (leaderboard, likes, comments, follow) with secure auth and session handling.',
+        gallery: [
+            '../resources/images/Makro/Makro1.png',
+            '../resources/images/Makro/Makro2.png',
+            '../resources/images/Makro/Makro3.png'
+        ],
+        githubUrl: '#',
+        liveUrl: null,
+        logoImage: '../resources/images/Makro/MakroLogo.png',
+        cardImage: '../resources/images/Makro/Makro1.png'
+    },
+    {
+        id: 'bioisac',
+        title: 'BioISAC',
+        role: 'Full Stack',
+        description: 'A specialized information system for biological research and data analysis, streamlining research workflows.',
+        problemSolution: '<strong>The Problem:</strong> Security teams at biological research facilities are overwhelmed by thousands of daily cyber alerts. They lack the resources to manually filter through this noise, which means critical vulnerabilities often go unnoticed and unpatched until it is too late.<br><br><strong>The Solution:</strong> An automated threat intelligence hub that solves alert fatigue. By aggregating data from global sources and using AI to filter out low-priority noise, the platform delivers a prioritized list of actionable threats so teams can focus on what matters most.',
+        tech: ['C#', '.NET 9 Web API', 'Google Gemini 2.5 Flash', 'MySQL', 'OTX API', 'NIST API', 'CISA API', 'OtpNet', 'QRCoder', 'Bootstrap 5'],
+        myRole: 'Backend Developer & System Architect',
+        roleDetail: 'Integrated multiple external threat feeds—specifically OTX, NIST, and CISA—to aggregate real-time vulnerability data. Implemented secure 2FA authentication using NuGet\'s OtpNet and QRCoder. Deployed Google Gemini 2.5 Flash to automatically evaluate and score threats, generate remediation steps, and review user documentation to verify qualifications prior to access.',
+        teammates: [
+            { name: 'Griffin Long', linkedin: 'https://www.linkedin.com/in/jgriffinlong/' },
+            { name: 'Shane Magee', linkedin: 'https://www.linkedin.com/in/shanemagee/' }
+        ],
+        challenge: 'Designed a scalable database architecture to handle large biological datasets while maintaining query performance and data integrity.',
+        gallery: [
+            '../resources/images/BioISAC/BI1.png',
+            '../resources/images/BioISAC/BI2.png',
+            '../resources/images/BioISAC/BI3.png'
+        ],
+        githubUrl: '#',
+        liveUrl: null,
+        logoImage: '../resources/images/BioISAC.png',
+        cardImage: '../resources/images/bioisac.jpg'
+    },
+    {
+        id: 'crimsonbookstore',
+        title: 'CrimsonBookStore',
+        role: 'Full Stack',
+        description: 'A specialized e-commerce platform designed for the university ecosystem, streamlining the entire textbook lifecycle for buying and selling used course materials.',
+        problemSolution: '<strong>The Problem:</strong> University students face high textbook costs and lack a centralized, trustworthy marketplace to buy and sell used course materials. Existing options are often fragmented or lack real-time inventory tracking for specific university courses.<br><br><strong>The Solution:</strong> A specialized e-commerce platform designed for the university ecosystem. It streamlines the entire textbook lifecycle—allowing students to submit books for sale and purchase used inventory—while providing administrators with real-time sales analytics and order fulfillment tools.',
+        tech: ['C#', '.NET 9 Web API', 'MySQL', 'JavaScript (ES6+)', 'Bootstrap 5', 'HTML5', 'CSS3', 'RESTful API'],
+        myRole: 'Full Stack Developer & Database Architect',
+        roleDetail: 'Architected a full-stack e-commerce marketplace from scratch using .NET 9. I designed a robust relational database schema in MySQL to handle complex inventory tracking and order history. I implemented the complete transaction workflow, engineering the \"Add to Cart\" state management, checkout logic, and the admin approval system for student book submissions.',
+        teammates: [
+            { name: 'Jykia Miller', linkedin: 'https://www.linkedin.com/in/jykiamiller/' },
+            { name: 'Brayden Sikorski', linkedin: 'https://www.linkedin.com/in/brayden-sikorski/' },
+            { name: 'Jayden Ragland', linkedin: 'https://www.linkedin.com/in/jayden-ragland/' }
+        ],
+        gallery: [
+            '../resources/images/CrimsonBookStore/CBS1.png',
+            '../resources/images/CrimsonBookStore/CBS2.png',
+            '../resources/images/CrimsonBookStore/CBS3.png'
+        ],
+        githubUrl: '#',
+        liveUrl: null,
+        logoSvg: `<svg width="512" height="512" viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+        <text x="400" y="150" font-family="Poppins, Arial, sans-serif" font-size="72" font-weight="800" fill="#DC143C" text-anchor="middle" letter-spacing="-1">CrimsonBookStore</text>
+    </svg>`,
+        cardImage: '../resources/images/crimsonbookstore.jpg'
+    },
+    {
         id: 'freelance-music',
         title: 'Freelance Music',
         role: 'Full Stack',
@@ -87,88 +242,6 @@ const projects = [
         <text x="256" y="380" font-family="Inter, Arial, sans-serif" font-size="48" font-weight="700" fill="#9E1B32" text-anchor="middle">CrimsonCollab</text>
     </svg>`,
         cardImage: '../resources/images/Screenshot 2025-11-14 125248.png'
-    },
-    {
-        id: 'mississippi-education',
-        title: 'Mississippi Quality Education Platform',
-        role: 'Full Stack',
-        description: 'An AI-powered learning platform expanding access to quality education for K–12 students in Mississippi.',
-        problemSolution: '<strong>The Problem:</strong> K-12 students in Mississippi lack centralized access to quality educational resources that align specifically with state-mandated learning standards (MCCRS), creating an equity gap in student support.<br><br><strong>The Solution:</strong> A comprehensive educational hub that democratizes access to learning by combining MCCRS-aligned resources with an AI-powered Socratic Tutor (Google Gemini) for personalized guidance.',
-        tech: ['C#', '.NET 8 Web API', 'Google Gemini API', 'SQLite', 'Swagger', 'JavaScript (ES6+)', 'Bootstrap 5', 'HTML5', 'CSS3'],
-        myRole: 'Lead Developer & Content Creator',
-        roleDetail: 'Developed the Learning Paths system, creating 5,000+ lines of structured educational content aligned with MCCRS standards. Built a modular single-page application (SPA) with .NET 8.0 Web API backend integration, implementing interactive practice questions with progressive hint systems for Pre-K through 12th grade.',
-        teammates: [
-            { name: 'Griffin Long', linkedin: 'https://www.linkedin.com/in/jgriffinlong/' },
-            { name: 'Shane Magee', linkedin: 'https://www.linkedin.com/in/shanemagee/' },
-            { name: 'Grace Neil', linkedin: 'https://www.linkedin.com/in/graceneil/' }
-        ],
-        awards: [
-            '🏆 First Place - AIS Software Innovate Challenge',
-            '🏆 Student Choice - AIS Software Innovate Challenge'
-        ],
-        challenge: 'Integrated Google Gemini API to create an AI tutor that guides students without giving direct answers, fostering critical thinking skills.',
-        gallery: [
-            '../resources/images/MSQualityEducation/MSQE1.png',
-            '../resources/images/MSQualityEducation/MSQE2.png',
-            '../resources/images/MSQualityEducation/MSQE3.png'
-        ],
-        githubUrl: '#',
-        liveUrl: null,
-        logoSvg: `<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-        <image href="../resources/images/Mississippi Flower.png" x="176" y="200" height="100" width="160" preserveAspectRatio="xMidYMid meet"/>
-        <text x="256" y="380" font-family="Segoe UI, Arial, sans-serif" font-size="48" font-weight="bold" fill="#FFFFFF" text-anchor="middle">MS Quality Education</text>
-    </svg>`,
-        cardImage: '../resources/images/Screenshot 2025-11-09 170809.png'
-    },
-    {
-        id: 'bioisac',
-        title: 'BioISAC',
-        role: 'Full Stack',
-        description: 'A specialized information system for biological research and data analysis, streamlining research workflows.',
-        problemSolution: '<strong>The Problem:</strong> Security teams at biological research facilities are overwhelmed by thousands of daily cyber alerts. They lack the resources to manually filter through this noise, which means critical vulnerabilities often go unnoticed and unpatched until it is too late.<br><br><strong>The Solution:</strong> An automated threat intelligence hub that solves alert fatigue. By aggregating data from global sources and using AI to filter out low-priority noise, the platform delivers a prioritized list of actionable threats so teams can focus on what matters most.',
-        tech: ['C#', '.NET 9 Web API', 'Google Gemini 2.5 Flash', 'MySQL', 'OTX API', 'NIST API', 'CISA API', 'OtpNet', 'QRCoder', 'Bootstrap 5'],
-        myRole: 'Backend Developer & System Architect',
-        roleDetail: 'Integrated multiple external threat feeds—specifically OTX, NIST, and CISA—to aggregate real-time vulnerability data. Implemented secure 2FA authentication using NuGet\'s OtpNet and QRCoder. Deployed Google Gemini 2.5 Flash to automatically evaluate and score threats, generate remediation steps, and review user documentation to verify qualifications prior to access.',
-        teammates: [
-            { name: 'Griffin Long', linkedin: 'https://www.linkedin.com/in/jgriffinlong/' },
-            { name: 'Shane Magee', linkedin: 'https://www.linkedin.com/in/shanemagee/' }
-        ],
-        challenge: 'Designed a scalable database architecture to handle large biological datasets while maintaining query performance and data integrity.',
-        gallery: [
-            '../resources/images/BioISAC/BI1.png',
-            '../resources/images/BioISAC/BI2.png',
-            '../resources/images/BioISAC/BI3.png'
-        ],
-        githubUrl: '#',
-        liveUrl: null,
-        logoImage: '../resources/images/BioISAC.png',
-        cardImage: '../resources/images/bioisac.jpg'
-    },
-    {
-        id: 'crimsonbookstore',
-        title: 'CrimsonBookStore',
-        role: 'Full Stack',
-        description: 'A specialized e-commerce platform designed for the university ecosystem, streamlining the entire textbook lifecycle for buying and selling used course materials.',
-        problemSolution: '<strong>The Problem:</strong> University students face high textbook costs and lack a centralized, trustworthy marketplace to buy and sell used course materials. Existing options are often fragmented or lack real-time inventory tracking for specific university courses.<br><br><strong>The Solution:</strong> A specialized e-commerce platform designed for the university ecosystem. It streamlines the entire textbook lifecycle—allowing students to submit books for sale and purchase used inventory—while providing administrators with real-time sales analytics and order fulfillment tools.',
-        tech: ['C#', '.NET 9 Web API', 'MySQL', 'JavaScript (ES6+)', 'Bootstrap 5', 'HTML5', 'CSS3', 'RESTful API'],
-        myRole: 'Full Stack Developer & Database Architect',
-        roleDetail: 'Architected a full-stack e-commerce marketplace from scratch using .NET 9. I designed a robust relational database schema in MySQL to handle complex inventory tracking and order history. I implemented the complete transaction workflow, engineering the "Add to Cart" state management, checkout logic, and the admin approval system for student book submissions.',
-        teammates: [
-            { name: 'Jykia Miller', linkedin: 'https://www.linkedin.com/in/jykiamiller/' },
-            { name: 'Brayden Sikorski', linkedin: 'https://www.linkedin.com/in/brayden-sikorski/' },
-            { name: 'Jayden Ragland', linkedin: 'https://www.linkedin.com/in/jayden-ragland/' }
-        ],
-        gallery: [
-            '../resources/images/CrimsonBookStore/CBS1.png',
-            '../resources/images/CrimsonBookStore/CBS2.png',
-            '../resources/images/CrimsonBookStore/CBS3.png'
-        ],
-        githubUrl: '#',
-        liveUrl: null,
-        logoSvg: `<svg width="512" height="512" viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
-        <text x="400" y="150" font-family="Poppins, Arial, sans-serif" font-size="72" font-weight="800" fill="#DC143C" text-anchor="middle" letter-spacing="-1">CrimsonBookStore</text>
-    </svg>`,
-        cardImage: '../resources/images/crimsonbookstore.jpg'
     }
 ];
 
